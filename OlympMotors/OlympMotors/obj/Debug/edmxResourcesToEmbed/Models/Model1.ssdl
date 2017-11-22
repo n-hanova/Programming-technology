@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="NameUser" Type="nvarchar(max)" />
+    <Property Name="SurnameUser" Type="nvarchar(max)" />
+    <Property Name="PhoneUser" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Conductor">
+    <Key>
+      <PropertyRef Name="Id_Conductor" />
+    </Key>
+    <Property Name="Id_Conductor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameConductor" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SurnameConductor" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="Id_Driver" />
+    </Key>
+    <Property Name="Id_Driver" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Driver_license" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NameDriver" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SurnameDriver" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Flight">
+    <Key>
+      <PropertyRef Name="Id_Flight" />
+    </Key>
+    <Property Name="Id_Flight" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumberFlight" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StartTime" Type="datetime" Nullable="false" />
+    <Property Name="StopTime" Type="datetime" Nullable="false" />
+    <Property Name="Id_Route" Type="int" Nullable="false" />
+    <Property Name="Id_Driver" Type="int" Nullable="false" />
+    <Property Name="Id_Conductor" Type="int" Nullable="false" />
+    <Property Name="Id_Transport" Type="int" Nullable="false" />
+    <Property Name="CountTicket" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Route">
+    <Key>
+      <PropertyRef Name="Id_Route" />
+    </Key>
+    <Property Name="Id_Route" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StartPoint" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StopPoint" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="Id_Ticket" />
+    </Key>
+    <Property Name="Id_Ticket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Flight" Type="int" Nullable="false" />
+    <Property Name="Id_User" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="StatusTicket" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transport">
+    <Key>
+      <PropertyRef Name="Id_Transport" />
+    </Key>
+    <Property Name="Id_Transport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="State_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BrandTransport" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Flight__Id_Condu__403A8C7D">
+    <End Role="Conductor" Type="Self.Conductor" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Flight" Type="Self.Flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conductor">
+        <PropertyRef Name="Id_Conductor" />
+      </Principal>
+      <Dependent Role="Flight">
+        <PropertyRef Name="Id_Conductor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Flight__Id_Drive__3F466844">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Flight" Type="Self.Flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="Id_Driver" />
+      </Principal>
+      <Dependent Role="Flight">
+        <PropertyRef Name="Id_Driver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Flight__Id_Route__3E52440B">
+    <End Role="Route" Type="Self.Route" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Flight" Type="Self.Flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Route">
+        <PropertyRef Name="Id_Route" />
+      </Principal>
+      <Dependent Role="Flight">
+        <PropertyRef Name="Id_Route" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Flight__Id_Trans__412EB0B6">
+    <End Role="Transport" Type="Self.Transport" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Flight" Type="Self.Flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transport">
+        <PropertyRef Name="Id_Transport" />
+      </Principal>
+      <Dependent Role="Flight">
+        <PropertyRef Name="Id_Transport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ticket__Id_Fligh__440B1D61">
+    <End Role="Flight" Type="Self.Flight" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flight">
+        <PropertyRef Name="Id_Flight" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="Id_Flight" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ticket__Id_User__44FF419A">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ModelContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Conductor" EntityType="Self.Conductor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Flight" EntityType="Self.Flight" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Route" EntityType="Self.Route" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transport" EntityType="Self.Transport" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Flight__Id_Condu__403A8C7D" Association="Self.FK__Flight__Id_Condu__403A8C7D">
+      <End Role="Conductor" EntitySet="Conductor" />
+      <End Role="Flight" EntitySet="Flight" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Flight__Id_Drive__3F466844" Association="Self.FK__Flight__Id_Drive__3F466844">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="Flight" EntitySet="Flight" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Flight__Id_Route__3E52440B" Association="Self.FK__Flight__Id_Route__3E52440B">
+      <End Role="Route" EntitySet="Route" />
+      <End Role="Flight" EntitySet="Flight" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Flight__Id_Trans__412EB0B6" Association="Self.FK__Flight__Id_Trans__412EB0B6">
+      <End Role="Transport" EntitySet="Transport" />
+      <End Role="Flight" EntitySet="Flight" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ticket__Id_Fligh__440B1D61" Association="Self.FK__Ticket__Id_Fligh__440B1D61">
+      <End Role="Flight" EntitySet="Flight" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ticket__Id_User__44FF419A" Association="Self.FK__Ticket__Id_User__44FF419A">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
