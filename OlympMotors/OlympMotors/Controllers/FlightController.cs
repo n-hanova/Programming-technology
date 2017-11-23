@@ -12,6 +12,7 @@ namespace OlympMotors.Controllers
     {
         Entities entities = new Entities();
         FlightDAO Fdao = new FlightDAO();
+        RouteDAO Rdao = new RouteDAO();
         // GET: Transport
         public ActionResult Index()
         {
@@ -24,11 +25,11 @@ namespace OlympMotors.Controllers
             return View(Fdao.GetFlight(id));
         }
 
-        //protected bool ViewDataSelectList(int Id_Route, string N)
+        //protected bool ViewDataSelectList(int route_id)
         //{
-        //    var positions = positionDAO.GetAllPosition();
-        //    ViewData["PositionId"] = new SelectList(positions, "Id", "Name", pos_id);
-        //    return positions.Count() > 0;
+        //    var routes = Rdao.GetAllRoutes();
+        //    ViewData["IdRoute"] = new SelectList(routes, "Id", "StartPoint", route_id);
+        //    return routes.Count() > 0;
         //}
 
 
@@ -40,7 +41,7 @@ namespace OlympMotors.Controllers
 
         // POST: Transport/Create
         [HttpPost]
-        public ActionResult Create([Bind(Exclude = "Id")] Flight flight)
+        public ActionResult Create([Bind(Exclude = "Id_Flight")] Flight flight)
         {
             if (Fdao.AddFlight(flight))
                 return RedirectToAction("Index");
@@ -54,7 +55,8 @@ namespace OlympMotors.Controllers
         // GET: Transport/Edit/5
         public ActionResult Edit(int id)
         {
-            return View("Edit");
+            Flight flight = Fdao.GetFlight(id);
+            return View(flight);
         }
 
         // POST: Transport/Edit/5

@@ -30,12 +30,20 @@ namespace OlympMotors.DAOClass
             return true;
         }
 
-        public void UpdateConductor(Conductor conductor)
+        public bool UpdateConductor(Conductor conductor)
         {
+            try
+            { 
             var Entity = entities.Conductor.FirstOrDefault(x => x.Id_Conductor == conductor.Id_Conductor);
             Entity.NameConductor = conductor.NameConductor;
             Entity.SurnameConductor = conductor.SurnameConductor;
             entities.SaveChanges();
+        }
+            catch
+            {
+                return false;
+            }
+            return true;
         }
 
         public Conductor GetConductor(int id)

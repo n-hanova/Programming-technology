@@ -23,6 +23,7 @@ namespace OlympMotors.Models
         public int Id_Route { get; set; }
         public string StartPoint { get; set; }
         public string StopPoint { get; set; }
+        public string StartStop { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Flight> Flight { get; set; }

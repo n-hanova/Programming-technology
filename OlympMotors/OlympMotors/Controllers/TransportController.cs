@@ -1,10 +1,10 @@
-﻿using OlympMotors.DAOClass;
-using OlympMotors.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using OlympMotors.Models;
+using OlympMotors.DAOClass;
 
 namespace OlympMotors.Controllers
 {
@@ -32,7 +32,7 @@ namespace OlympMotors.Controllers
 
         // POST: Transport/Create
         [HttpPost]
-        public ActionResult Create([Bind(Exclude = "Id")] Transport transport)
+        public ActionResult Create([Bind(Exclude = "Id_Transport")] Transport transport)
         {
             if (Tdao.AddTransport(transport))
                 return RedirectToAction("Index");
@@ -46,15 +46,14 @@ namespace OlympMotors.Controllers
         // GET: Transport/Edit/5
         public ActionResult Edit(int id)
         {
-            return View("Edit");
+            Transport transport = Tdao.GetTransport(id);
+            return View(transport);
         }
 
         // POST: Transport/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, Transport contact)
         {
-
-
             if ((id > 0) && (contact != null) && (ModelState.IsValid))
             {
                 Tdao.UpdateTransport(contact);

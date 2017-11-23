@@ -1,0 +1,81 @@
+﻿@model IEnumerable<OlympMotors.Models.Flight>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Flight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberFlight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StopTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Route)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Driver)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Conductor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Transport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountTicket)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Flight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberFlight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StopTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Route)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Driver)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Conductor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Transport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountTicket)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

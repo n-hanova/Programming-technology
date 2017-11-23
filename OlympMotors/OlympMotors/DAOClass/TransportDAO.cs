@@ -30,12 +30,20 @@ namespace OlympMotors.DAOClass
             return true;
         }
 
-        public void UpdateTransport(Transport transport)
+        public bool UpdateTransport(Transport transport)
         {
-            var Entity = entities.Transport.FirstOrDefault(x => x.Id_Transport == transport.Id_Transport);
-            Entity.State_number = transport.State_number;
-            Entity.BrandTransport = transport.BrandTransport;
-            entities.SaveChanges();
+            try
+            {
+                var Entity = entities.Transport.FirstOrDefault(x => x.Id_Transport == transport.Id_Transport);
+                Entity.State_number = transport.State_number;
+                Entity.BrandTransport = transport.BrandTransport;
+                entities.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
         }
 
         public Transport GetTransport(int id)

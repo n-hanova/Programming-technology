@@ -30,13 +30,21 @@ namespace OlympMotors.DAOClass
             return true;
         }
 
-        public void UpdateDriver(Driver driver)
+        public bool UpdateDriver(Driver driver)
         {
+            try
+            { 
             var Entity = entities.Driver.FirstOrDefault(x => x.Id_Driver == driver.Id_Driver);
             Entity.Driver_license = driver.Driver_license;
             Entity.NameDriver = driver.NameDriver;
             Entity.SurnameDriver = driver.SurnameDriver;
             entities.SaveChanges();
+        }
+            catch
+            {
+                return false;
+            }
+            return true;
         }
 
         public Driver GetDriver(int id)

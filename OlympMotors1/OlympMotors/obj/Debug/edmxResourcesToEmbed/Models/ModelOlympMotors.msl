@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Model.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Model.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+          <ScalarProperty Name="SurnameUser" ColumnName="SurnameUser" />
+          <ScalarProperty Name="PhoneUser" ColumnName="PhoneUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conductor">
+      <EntityTypeMapping TypeName="Model.Conductor">
+        <MappingFragment StoreEntitySet="Conductor">
+          <ScalarProperty Name="Id_Conductor" ColumnName="Id_Conductor" />
+          <ScalarProperty Name="NameConductor" ColumnName="NameConductor" />
+          <ScalarProperty Name="SurnameConductor" ColumnName="SurnameConductor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Driver">
+      <EntityTypeMapping TypeName="Model.Driver">
+        <MappingFragment StoreEntitySet="Driver">
+          <ScalarProperty Name="Id_Driver" ColumnName="Id_Driver" />
+          <ScalarProperty Name="Driver_license" ColumnName="Driver_license" />
+          <ScalarProperty Name="NameDriver" ColumnName="NameDriver" />
+          <ScalarProperty Name="SurnameDriver" ColumnName="SurnameDriver" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flight">
+      <EntityTypeMapping TypeName="Model.Flight">
+        <MappingFragment StoreEntitySet="Flight">
+          <ScalarProperty Name="Id_Flight" ColumnName="Id_Flight" />
+          <ScalarProperty Name="NumberFlight" ColumnName="NumberFlight" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="StopTime" ColumnName="StopTime" />
+          <ScalarProperty Name="Id_Route" ColumnName="Id_Route" />
+          <ScalarProperty Name="Id_Driver" ColumnName="Id_Driver" />
+          <ScalarProperty Name="Id_Conductor" ColumnName="Id_Conductor" />
+          <ScalarProperty Name="Id_Transport" ColumnName="Id_Transport" />
+          <ScalarProperty Name="CountTicket" ColumnName="CountTicket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Route">
+      <EntityTypeMapping TypeName="Model.Route">
+        <MappingFragment StoreEntitySet="Route">
+          <ScalarProperty Name="Id_Route" ColumnName="Id_Route" />
+          <ScalarProperty Name="StartPoint" ColumnName="StartPoint" />
+          <ScalarProperty Name="StopPoint" ColumnName="StopPoint" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ticket">
+      <EntityTypeMapping TypeName="Model.Ticket">
+        <MappingFragment StoreEntitySet="Ticket">
+          <ScalarProperty Name="Id_Ticket" ColumnName="Id_Ticket" />
+          <ScalarProperty Name="Id_Flight" ColumnName="Id_Flight" />
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+          <ScalarProperty Name="StatusTicket" ColumnName="StatusTicket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transport">
+      <EntityTypeMapping TypeName="Model.Transport">
+        <MappingFragment StoreEntitySet="Transport">
+          <ScalarProperty Name="Id_Transport" ColumnName="Id_Transport" />
+          <ScalarProperty Name="State_number" ColumnName="State_number" />
+          <ScalarProperty Name="BrandTransport" ColumnName="BrandTransport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

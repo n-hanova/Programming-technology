@@ -70,6 +70,7 @@
           <ScalarProperty Name="Id_Route" ColumnName="Id_Route" />
           <ScalarProperty Name="StartPoint" ColumnName="StartPoint" />
           <ScalarProperty Name="StopPoint" ColumnName="StopPoint" />
+          <ScalarProperty Name="StartStop" ColumnName="StartStop" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

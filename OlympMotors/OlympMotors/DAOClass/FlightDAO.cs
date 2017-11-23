@@ -30,8 +30,10 @@ namespace OlympMotors.DAOClass
             return true;
         }
 
-        public void UpdateFlight(Flight flight)
+        public bool UpdateFlight(Flight flight)
         {
+            try
+            { 
             var Entity = entities.Flight.FirstOrDefault(x => x.Id_Flight == flight.Id_Flight);
             Entity.NumberFlight = flight.NumberFlight;
             Entity.StartTime = flight.StartTime;
@@ -42,6 +44,12 @@ namespace OlympMotors.DAOClass
             Entity.Id_Transport = flight.Id_Transport;
             Entity.CountTicket = flight.CountTicket;
             entities.SaveChanges();
+        }
+            catch
+            {
+                return false;
+            }
+            return true;
         }
 
         public Flight GetFlight(int id)

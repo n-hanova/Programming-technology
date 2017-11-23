@@ -197,6 +197,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AspNetUserController.cs" />
+    <Compile Include="DAOClass\RoleDAO.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ConductorController.cs" />
     <Compile Include="Controllers\DriverController.cs" />
@@ -210,7 +212,7 @@
     <Compile Include="DAOClass\FlightDAO.cs" />
     <Compile Include="DAOClass\RouteDAO.cs" />
     <Compile Include="DAOClass\TransportDAO.cs" />
-    <Compile Include="DAOClass\UserDAO.cs" />
+    <Compile Include="DAOClass\AspNetUserDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -351,16 +353,32 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Transport\Index.cshtml" />
-    <Content Include="Views\Driver\Index.cshtml" />
-    <Content Include="Views\Transport\Create.cshtml" />
-    <Content Include="Views\Driver\Create.cshtml" />
-    <Content Include="Views\Conductor\Index.cshtml" />
-    <Content Include="Views\Conductor\Create.cshtml" />
     <Content Include="Views\Route\Index.cshtml" />
-    <Content Include="Views\Route\Create.cshtml" />
+    <Content Include="Views\Transport\Index.cshtml" />
+    <Content Include="Views\Transport\Create.cshtml" />
+    <Content Include="Views\Transport\Details.cshtml" />
+    <Content Include="Views\Transport\Delete.cshtml" />
+    <Content Include="Views\Transport\Edit.cshtml" />
+    <Content Include="Views\Route\Details.cshtml" />
+    <Content Include="Views\Route\Edit.cshtml" />
+    <Content Include="Views\Route\Delete.cshtml" />
+    <Content Include="Views\Conductor\Index.cshtml" />
+    <Content Include="Views\Conductor\Details.cshtml" />
+    <Content Include="Views\Conductor\Create.cshtml" />
+    <Content Include="Views\Conductor\Edit.cshtml" />
+    <Content Include="Views\Conductor\Delete.cshtml" />
+    <Content Include="Views\Driver\Index.cshtml" />
+    <Content Include="Views\Driver\Details.cshtml" />
+    <Content Include="Views\Driver\Create.cshtml" />
+    <Content Include="Views\Driver\Edit.cshtml" />
+    <Content Include="Views\Driver\Delete.cshtml" />
     <Content Include="Views\Flight\Index.cshtml" />
+    <Content Include="Views\Flight\Details.cshtml" />
     <Content Include="Views\Flight\Create.cshtml" />
+    <Content Include="Views\Flight\Edit.cshtml" />
+    <Content Include="Views\Flight\Delete.cshtml" />
+    <Content Include="Views\AspNetUser\Index.cshtml" />
+    <Content Include="Views\Route\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

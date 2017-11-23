@@ -1,0 +1,90 @@
+﻿@model OlympMotors.Models.Flight
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Flight</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Flight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Flight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberFlight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberFlight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StopTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StopTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Route)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Route)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Driver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Driver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Conductor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Conductor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Transport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Transport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountTicket)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountTicket)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Flight }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

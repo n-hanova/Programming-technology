@@ -18,6 +18,9 @@ namespace OlympMotors.DAOClass
 
         public bool AddRoute(Route route)
         {
+            route.StartPoint = route.StartPoint;
+            route.StopPoint = route.StopPoint;
+            route.StartStop = route.StartPoint + "-" + route.StopPoint;
             try
             {
                 entities.Route.Add(route);
@@ -30,12 +33,20 @@ namespace OlympMotors.DAOClass
             return true;
         }
 
-        public void UpdateRoute(Route route)
+        public bool UpdateRoute(Route route)
         {
+            try { 
             var Entity = entities.Route.FirstOrDefault(x => x.Id_Route == route.Id_Route);
             Entity.StartPoint = route.StartPoint;
             Entity.StopPoint = route.StopPoint;
-            entities.SaveChanges();
+            Entity.StartStop = route.StartPoint + "-" + route.StopPoint;
+                entities.SaveChanges();
+        }
+            catch
+            {
+                return false;
+            }
+            return true;
         }
 
         public Route GetRoute(int id)

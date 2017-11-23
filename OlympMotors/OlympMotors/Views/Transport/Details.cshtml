@@ -1,0 +1,41 @@
+﻿@model OlympMotors.Models.Transport
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Transport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Transport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Transport)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.State_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrandTransport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrandTransport)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Transport }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

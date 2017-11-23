@@ -32,7 +32,7 @@ namespace OlympMotors.Controllers
 
         // POST: Transport/Create
         [HttpPost]
-        public ActionResult Create([Bind(Exclude = "Id")] Driver driver)
+        public ActionResult Create([Bind(Exclude = "Id_Driver")] Driver driver)
         {
             if (Ddao.AddDriver(driver))
                 return RedirectToAction("Index");
@@ -46,7 +46,8 @@ namespace OlympMotors.Controllers
         // GET: Transport/Edit/5
         public ActionResult Edit(int id)
         {
-            return View("Edit");
+            Driver driver = Ddao.GetDriver(id);
+            return View(driver);
         }
 
         // POST: Transport/Edit/5

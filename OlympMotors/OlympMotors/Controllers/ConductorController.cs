@@ -32,7 +32,7 @@ namespace OlympMotors.Controllers
 
         // POST: Transport/Create
         [HttpPost]
-        public ActionResult Create([Bind(Exclude = "Id")] Conductor conductor)
+        public ActionResult Create([Bind(Exclude = "Id_Conductor")] Conductor conductor)
         {
             if (Cdao.AddConductor(conductor))
                 return RedirectToAction("Index");
@@ -46,7 +46,8 @@ namespace OlympMotors.Controllers
         // GET: Transport/Edit/5
         public ActionResult Edit(int id)
         {
-            return View("Edit");
+            Conductor conductor = Cdao.GetConductor(id);
+            return View(conductor);
         }
 
         // POST: Transport/Edit/5

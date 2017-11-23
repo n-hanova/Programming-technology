@@ -73,6 +73,7 @@
     <Property Name="Id_Route" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="StartPoint" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="StopPoint" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StartStop" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="Ticket">
     <Key>

@@ -78,6 +78,7 @@
           <Property Name="Id_Route" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StartPoint" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="StopPoint" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartStop" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Ticket">
           <Key>
@@ -331,6 +332,7 @@
           <Property Name="Id_Route" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StartPoint" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StopPoint" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartStop" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Flight" Relationship="Self.FK__Flight__Id_Route__3E52440B" FromRole="Route" ToRole="Flight" />
         </EntityType>
         <EntityType Name="Ticket">
@@ -554,6 +556,7 @@
                 <ScalarProperty Name="Id_Route" ColumnName="Id_Route" />
                 <ScalarProperty Name="StartPoint" ColumnName="StartPoint" />
                 <ScalarProperty Name="StopPoint" ColumnName="StopPoint" />
+                <ScalarProperty Name="StartStop" ColumnName="StartStop" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

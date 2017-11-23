@@ -32,7 +32,7 @@ namespace OlympMotors.Controllers
 
         // POST: Transport/Create
         [HttpPost]
-        public ActionResult Create([Bind(Exclude = "Id")] Route route)
+        public ActionResult Create([Bind(Exclude = "Id_Route")] Route route)
         {
             if (Rdao.AddRoute(route))
                 return RedirectToAction("Index");
@@ -46,7 +46,8 @@ namespace OlympMotors.Controllers
         // GET: Transport/Edit/5
         public ActionResult Edit(int id)
         {
-            return View("Edit");
+            Route route = Rdao.GetRoute(id);
+            return View(route);
         }
 
         // POST: Transport/Edit/5

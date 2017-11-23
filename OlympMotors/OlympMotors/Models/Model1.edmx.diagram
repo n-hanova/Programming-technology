@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c35cf4a21a8e46ef8bf2daf011079b91" Name="Diagram1">
+      <Diagram DiagramId="f443bdde5b0248d0928d054b50a381fd" Name="Diagram1">
         <EntityTypeShape EntityType="Model.AspNetRoles" Width="1.5" PointX="0.75" PointY="15.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.AspNetUsers" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Conductor" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="Model.Flight" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Route" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Ticket" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Transport" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Transport" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
         <AssociationConnector Association="Model.FK__Ticket__Id_User__44FF419A" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK__Flight__Id_Condu__403A8C7D" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK__Flight__Id_Drive__3F466844" ManuallyRouted="false" />

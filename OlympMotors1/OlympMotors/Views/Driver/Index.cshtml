@@ -1,0 +1,51 @@
+﻿@model IEnumerable<OlympMotors.Models.Driver>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Driver)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Driver_license)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameDriver)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SurnameDriver)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_Driver)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Driver_license)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameDriver)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SurnameDriver)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

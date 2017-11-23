@@ -1,0 +1,50 @@
+﻿@model OlympMotors.Models.Driver
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Driver</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Driver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Driver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Driver_license)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Driver_license)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameDriver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameDriver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SurnameDriver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurnameDriver)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Driver }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
